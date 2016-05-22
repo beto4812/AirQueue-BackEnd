@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html xml:lang="en" class="layout-2col">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="msapplication-TileImage" content="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-114x114.png">
+    <meta name="msapplication-TileColor" content="#02459e">
+        <link rel="shortcut icon" href="http://www.scottishairquality.co.uk/images/icons/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-144x144.png">
+    <script src="http://www.scottishairquality.co.uk/js/libs/media.match.min.js"></script>
+    <script src="http://www.scottishairquality.co.uk/js/libs/enquire.min.js"></script>
+                <!--[if lte IE 9]>
+    <link rel="stylesheet" href="http://www.scottishairquality.co.uk/css/styles-static.min.css">
+    <![endif]-->
+    <!--[if gt IE 9]><!-->
+    <link  rel="stylesheet" href="http://www.scottishairquality.co.uk/css/styles.min.css">
+    <!--<![endif]-->
+    <title>Monitoring site summary - Air Quality in Scotland</title>
+            <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-4917050-6']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+       </head>
+<body>
+
+<div class="l-header" role="banner">
+    <a class="logo" href="http://www.scottishairquality.co.uk/">
+        <img id="aqs-logo-white" class="logo-white" src="http://www.scottishairquality.co.uk/images/logo-air-quality-in-scotland-white.png" alt="Air Quality in Scotland">
+        <img id="aqs-logo-coloured" class="logo-coloured" src="http://www.scottishairquality.co.uk/images/logo-air-quality-in-scotland.png" alt="Air Quality in Scotland">
+    </a>
+
+
+    <a href="#nav" id="menu-toggle" class="menu-link menu-link-left menu-link-nav"><span>Menu</span></a>
+    <a href="#" id="search-toggle" class="menu-link  menu-link-right menu-link-search"><span>Search</span></a>
+
+    <div class="search-wrapper" id="search-wrapper">
+        <form action="http://www.scottishairquality.co.uk/search" method="get" class="form form-search">
+            <label for="search" class="vis-hidden">Search</label>
+            <input type="text" id="search" name="search" class="input-text width-200" value="" placeholder="e.g. what is air pollution?">
+            <input type="image" class="input-search-button"  name="search-submit" alt="Search" value="Search" src="http://www.scottishairquality.co.uk/images/btn/search-submit.png" title="Search">
+        </form>
+    </div><!-- search-wrapper  -->
+        <div id="nav" class="l-navigation" role="navigation">
+        <ul>
+            <li class="nav-one"><a href="http://www.scottishairquality.co.uk/index">Home</a></li>
+            <li class="nav-two is-active"><a href="http://www.scottishairquality.co.uk/latest">Latest &amp; Forecasts</a></li>
+            <li class="nav-three"><a href="http://www.scottishairquality.co.uk/air-quality">About air quality</a></li>
+            <li class="nav-four"><a href="http://www.scottishairquality.co.uk/what-can-i-do">What can I do?</a></li>
+            <li class="nav-five"><a href="http://www.scottishairquality.co.uk/data">Data &amp; Maps</a></li>
+            <li class="nav-six"><a href="http://www.scottishairquality.co.uk/laqm">LAQM</a></li>
+            <li class="nav-seven"><a href="http://www.scottishairquality.co.uk/news">News &amp; Reports</a></li>
+            <li class="nav-eight"><a href="http://www.scottishairquality.co.uk/stay-informed">Stay Informed</a></li>
+            <li class="nav-nine"><a href="http://www.scottishairquality.co.uk/know-and-respond">Know &amp; Respond</a></li>
+            <li class="nav-ten"><a href="http://www.scottishairquality.co.uk/education">Education</a></li>
+        </ul>
+    </div><!-- l-navigation -->
+</div><!-- l-header -->
+
+<div class="l-main" role="main" id="main">
+    <div class="l-content">
+                <div class="msg msg-warning no-margin-top"><span class="alt-font-styled">Just to let you know...</span> This website uses cookies to make it simpler. <a href="http://www.scottishairquality.co.uk//cookies">Find out more &raquo;</a></div>
+        <h1>Monitoring site summary</h1>
+
+<p>A summary of the Scottish monitoring sites and latest measurement <a href="../air-quality/daqi">DAQI pollution bands</a> is shown below.</p>
+<p>&raquo; <a href="closed-sites">View a list of closed monitoring sites</a><br /> &raquo; <a href="#nomonitoring">View local authorities that do not have automatic monitoring </a></p>
+
+    <div data-tabtransform="true" class="tab-wrapper" id="tabs-data">
+        <ul class="tabs" id="tab-links">
+            <li><a class="is-active" href="summary" data-tab="list">View Site List</a></li>
+            <li><a href="summary?view=la"  data-tab="la">View By Local Authority</a></li>
+        </ul>
+    </div>
+
+
+    <table>
+    <thead>
+    <tr>
+        <th width="*">Monitoring site</th>
+        <th width="25%">Band/Index</th>
+        <th width="20%">Last updated</th>
+    </tr>
+    </thead>
+    <tbody>
+            <tr>
+            <td><a href="site-info?site_id=ABD1">Aberdeen Anderson Dr</a><br><span class="smalltext greytext">Local Authority: Aberdeen City</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ABD">Aberdeen Errol Place</a><br><span class="smalltext greytext">Local Authority: Aberdeen City</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=AD1">Aberdeen King Street</a><br><span class="smalltext greytext">Local Authority: Aberdeen City</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ABD0">Aberdeen Market Street 2</a><br><span class="smalltext greytext">Local Authority: Aberdeen City</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ABD3">Aberdeen Union Street Roadside</a><br><span class="smalltext greytext">Local Authority: Aberdeen City</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ABD8">Aberdeen Wellington Road</a><br><span class="smalltext greytext">Local Authority: Aberdeen City</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ALO2">Alloa A907</a><br><span class="smalltext greytext">Local Authority: Clackmannanshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=AFR1">Angus Forfar Glamis Rd</a><br><span class="smalltext greytext">Local Authority: Angus</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ACTH">Auchencorth Moss</a><br><span class="smalltext greytext">Local Authority: Midlothian</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=BUSH">Bush Estate</a><br><span class="smalltext greytext">Local Authority: Midlothian</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=DUMF">Dumfries</a><br><span class="smalltext greytext">Local Authority: Dumfries and Galloway</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=DUN4">Dundee Broughty Ferry Road</a><br><span class="smalltext greytext">Local Authority: Dundee City</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=DUN6">Dundee Lochee Road</a><br><span class="smalltext greytext">Local Authority: Dundee City</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=DUN1">Dundee Mains Loan</a><br><span class="smalltext greytext">Local Authority: Dundee City</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=DUNM">Dundee Meadowside</a><br><span class="smalltext greytext">Local Authority: Dundee City</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=DUN5">Dundee Seagate</a><br><span class="smalltext greytext">Local Authority: Dundee City</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=DUN7">Dundee Whitehall Street</a><br><span class="smalltext greytext">Local Authority: Dundee City</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=MARN">E Ayrshire Kilmarnock St Marnock St</a><br><span class="smalltext greytext">Local Authority: East Ayrshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=EDB2">East Dunbartonshire Bearsden</a><br><span class="smalltext greytext">Local Authority: East Dunbartonshire</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=EDB1">East Dunbartonshire Bishopbriggs</a><br><span class="smalltext greytext">Local Authority: East Dunbartonshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 05:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=EDB3">East Dunbartonshire Kirkintilloch</a><br><span class="smalltext greytext">Local Authority: East Dunbartonshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=EDB4">East Dunbartonshire Milngavie </a><br><span class="smalltext greytext">Local Authority: East Dunbartonshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=MUSS">East Lothian Musselburgh N High St</a><br><span class="smalltext greytext">Local Authority: East Lothian</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ED11">Edinburgh Currie</a><br><span class="smalltext greytext">Local Authority: City of Edinburgh</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ED10">Edinburgh Glasgow Road</a><br><span class="smalltext greytext">Local Authority: City of Edinburgh</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ED5">Edinburgh Gorgie Road</a><br><span class="smalltext greytext">Local Authority: City of Edinburgh</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ED7">Edinburgh Queen Street</a><br><span class="smalltext greytext">Local Authority: City of Edinburgh</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 05:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ED9">Edinburgh Queensferry Road</a><br><span class="smalltext greytext">Local Authority: City of Edinburgh</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ED8">Edinburgh Salamander St</a><br><span class="smalltext greytext">Local Authority: City of Edinburgh</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 05:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ED1">Edinburgh St John's Road</a><br><span class="smalltext greytext">Local Authority: City of Edinburgh</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 05:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ED3">Edinburgh St Leonards</a><br><span class="smalltext greytext">Local Authority: City of Edinburgh</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ESK">Eskdalemuir</a><br><span class="smalltext greytext">Local Authority: Dumfries and Galloway</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=FAL7">Falkirk Banknock</a><br><span class="smalltext greytext">Local Authority: Falkirk</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=FALK">Falkirk Grangemouth MC</a><br><span class="smalltext greytext">Local Authority: Falkirk</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=FAL8">Falkirk Grangemouth Zetland Park</a><br><span class="smalltext greytext">Local Authority: Falkirk</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=FAL5">Falkirk Haggs</a><br><span class="smalltext greytext">Local Authority: Falkirk</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=FAL3">Falkirk Hope St</a><br><span class="smalltext greytext">Local Authority: Falkirk</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=FAL6">Falkirk West Bridge Street</a><br><span class="smalltext greytext">Local Authority: Falkirk</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=CUPA">Fife Cupar</a><br><span class="smalltext greytext">Local Authority: Fife</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=DUNF">Fife Dunfermline</a><br><span class="smalltext greytext">Local Authority: Fife</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=KIR">Fife Kirkcaldy</a><br><span class="smalltext greytext">Local Authority: Fife</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=ROSY">Fife Rosyth</a><br><span class="smalltext greytext">Local Authority: Fife</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=FW">Fort William</a><br><span class="smalltext greytext">Local Authority: Highland</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GL1">Glasgow Abercromby Street</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GLA5">Glasgow Anderston</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GL3">Glasgow Broomhill</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GL6">Glasgow Burgher St.</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GLA6">Glasgow Byres Road</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GL9">Glasgow Dumbarton Road</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GGWR">Glasgow Great Western Road</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GHSR">Glasgow High Street</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GLA4">Glasgow Kerbside</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GL2">Glasgow Nithsdale Road</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GLKP">Glasgow Townhead</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GLA7">Glasgow Waulkmillglen Reservoir</a><br><span class="smalltext greytext">Local Authority: City of Glasgow</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GRAN">Grangemouth</a><br><span class="smalltext greytext">Local Authority: Falkirk</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=GRA2">Grangemouth Moray</a><br><span class="smalltext greytext">Local Authority: Falkirk</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=INC2">Inverclyde Greenock A8</a><br><span class="smalltext greytext">Local Authority: Inverclyde</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=INV2">Inverness</a><br><span class="smalltext greytext">Local Authority: Highland</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=LERW">Lerwick</a><br><span class="smalltext greytext">Local Authority: Shetland Islands</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=NL3">N Lanarkshire Chapelhall</a><br><span class="smalltext greytext">Local Authority: North Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=NL1">N Lanarkshire Coatbridge Whifflet</a><br><span class="smalltext greytext">Local Authority: North Lanarkshire</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=NL4">N Lanarkshire Croy</a><br><span class="smalltext greytext">Local Authority: North Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=NL9">N Lanarkshire Moodiesburn</a><br><span class="smalltext greytext">Local Authority: North Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=NL6">N Lanarkshire Motherwell</a><br><span class="smalltext greytext">Local Authority: North Lanarkshire</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=NL7">N Lanarkshire Shawhead Coatbridge</a><br><span class="smalltext greytext">Local Authority: North Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=IRV">North Ayrshire Irvine High St</a><br><span class="smalltext greytext">Local Authority: North Ayrshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=NL11">North Lanarkshire Kirkshaw</a><br><span class="smalltext greytext">Local Authority: North Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=PAI2">Paisley Glasgow Airport</a><br><span class="smalltext greytext">Local Authority: Renfrewshire</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=PAI3">Paisley Gordon Street</a><br><span class="smalltext greytext">Local Authority: Renfrewshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=PAI4">Paisley St James St</a><br><span class="smalltext greytext">Local Authority: Renfrewshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=PEEB">Peebles</a><br><span class="smalltext greytext">Local Authority: Scottish Borders</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=PET2">Perth Atholl Street</a><br><span class="smalltext greytext">Local Authority: Perth and Kinross</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=PET1">Perth Crieff</a><br><span class="smalltext greytext">Local Authority: Perth and Kinross</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=PETH">Perth High Street</a><br><span class="smalltext greytext">Local Authority: Perth and Kinross</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=PET3">Perth Muirton</a><br><span class="smalltext greytext">Local Authority: Perth and Kinross</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=REN1">Renfrew Cockels Loan</a><br><span class="smalltext greytext">Local Authority: Renfrewshire</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=HARB">South Ayrshire Ayr Harbour</a><br><span class="smalltext greytext">Local Authority: South Ayrshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=AYR">South Ayrshire Ayr High St</a><br><span class="smalltext greytext">Local Authority: South Ayrshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=SL07">South Lanarkshire Cambuslang</a><br><span class="smalltext greytext">Local Authority: South Lanarkshire</span></td>
+            <td><span class="band index2">LOW (Index 2)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=EK0">South Lanarkshire East Kilbride</a><br><span class="smalltext greytext">Local Authority: South Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>30/04/2013 22:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=SL05">South Lanarkshire Hamilton</a><br><span class="smalltext greytext">Local Authority: South Lanarkshire</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=SL03">South Lanarkshire Lanark</a><br><span class="smalltext greytext">Local Authority: South Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=SL04">South Lanarkshire Rutherglen</a><br><span class="smalltext greytext">Local Authority: South Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=SL06">South Lanarkshire Uddingston</a><br><span class="smalltext greytext">Local Authority: South Lanarkshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=STRL">Stirling Craig's Roundabout</a><br><span class="smalltext greytext">Local Authority: Stirling</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 06:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=SV">Strath Vaich</a><br><span class="smalltext greytext">Local Authority: Highland</span></td>
+            <td><span class="band index0">NO DATA</span></td>
+            <td>24/05/2016 09:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=WDB3">West Dunbartonshire Clydebank</a><br><span class="smalltext greytext">Local Authority: West Dunbartonshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=WDB4">West Dunbartonshire Glasgow Road</a><br><span class="smalltext greytext">Local Authority: West Dunbartonshire</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=BRX">West Lothian Broxburn</a><br><span class="smalltext greytext">Local Authority: West Lothian</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 07:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=WLC1">West Lothian Linlithgow High Street 2</a><br><span class="smalltext greytext">Local Authority: West Lothian</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+            <tr>
+            <td><a href="site-info?site_id=WLN4">West Lothian Newton</a><br><span class="smalltext greytext">Local Authority: West Lothian</span></td>
+            <td><span class="band index1">LOW (Index 1)</span></td>
+            <td>24/05/2016 08:00</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <h2 id="nomonitoring">Local Authorities with no automatic monitoring</h2>
+    <p class="bold">This applies to: Aberdeenshire, Argyll and Bute, Comhairle nan Eilean Siar (Western Isles), East Renfrewshire, Moray, Orkney Islands</p>
+    <p>Not all Scottish Local Authorities conduct automatic monitoring of air pollution.
+        This is because they may not have identified a requirement for collecting such detailed
+        data based on their understanding of the different pollutant sources in their area
+        and the associated risk of increased air pollution.</p>
+    <p>There may however be pollutant measurements
+        conducted in that area using other methods which provide data over longer averaging
+        periods e.g. monthly averages.</p>
+    <p>Please refer to the <a href="../news/reports?view=laqm">LAQM reports for these Local
+            Authority areas</a> for further information.</p>
+
+    </div><!-- l-content -->
+
+        <div class="l-secondary-nav">
+        <ul>
+            <li class="l-secondary-nav-current-section"><a href="http://www.scottishairquality.co.uk/latest/" class="alt-font-styled">Latest &amp; Forecasts</a></li>
+            <li class="is-active"><a href="http://www.scottishairquality.co.uk/latest/summary">Monitoring site summary</a></li><li><a href="http://www.scottishairquality.co.uk/latest/local-search">Local search</a></li><li><a href="http://www.scottishairquality.co.uk/latest/current-levels">Current levels</a></li><li><a href="http://www.scottishairquality.co.uk/latest/current-levels?period=24">24 Hour summary</a></li><li><a href="http://www.scottishairquality.co.uk/latest/pollutant-site-graphs">Pollutant graphs</a></li><li><a href="http://www.scottishairquality.co.uk/latest/forecast">Air Pollution Forecast</a></li><li><a href="http://www.scottishairquality.co.uk/latest/forecast-summary">Forecast 5-day summary</a></li>        </ul>
+
+
+    </div><!-- l-secondary-nav -->
+    
+
+</div>
+
+
+<div class="l-footer" role="contentinfo">
+
+    <div class="grid">
+        <div class="grid__item one-third">
+            <ul>
+                <li class="bold">&copy; 2016 Air Quality in Scotland</li>
+                <li>Website hosted and maintained by <a href="http://ee.ricardo.com">Ricardo Energy &amp; Environment</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/about">About this website</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/cookies">Website cookies &amp; privacy policy</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/members/">Members login</a></li>
+            </ul>
+        </div><!--
+        --><div class="grid__item one-third">
+            <ul>
+                <li class="bold">Discover more...</li>
+                <li><a href="http://www.youtube.com/user/AirQualityScotland"><img src="http://www.scottishairquality.co.uk//images/icons/icon_youtube-large.png" alt="Air Quality in Scotland on YouTube"></a>
+                <a href="http://twitter.com/scotairquality"><img src="http://www.scottishairquality.co.uk/images/icons/icon_twitter-large.png" alt="Follow us on Twitter"></a>
+                <a href="http://www.scottishairquality.co.uk/stay-informed/apps"><img src="http://www.scottishairquality.co.uk/images/icons/icon_app_34x34.jpg" alt="Air Quality in Scotland App"></a>
+                </li>
+            </ul>
+            <p>You can follow us on twitter for all the latest pollution updates from the monitoring network.</p>
+        </div><!--
+        --><div class="grid__item one-third">
+            <ul>
+                <li class="bold">Don't miss...</li>
+                <li>&raquo; <a href="http://children.scottishairquality.co.uk">Air Pollution Detectives</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/stay-informed/apps">Download the Air Quality in Scotland app</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/air-quality">Information about how air quality affects you</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/news/">Latest news from Air Quality in Scotland</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div><!-- l-footer -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="http://www.scottishairquality.co.uk/js/libs/jquery-1.8.3.min.js"><\/script>')</script>
+    <script>var app = {};</script>
+<script src="http://www.scottishairquality.co.uk/js/javascript.js"></script>
+
+    
+
+</body>
+</html>
+

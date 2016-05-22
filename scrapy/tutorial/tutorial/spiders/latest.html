@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xml:lang="en" class="layout-2col">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="msapplication-TileImage" content="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-114x114.png">
+    <meta name="msapplication-TileColor" content="#02459e">
+        <link rel="shortcut icon" href="http://www.scottishairquality.co.uk/images/icons/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="http://www.scottishairquality.co.uk/images/icons/apple-touch-icon-144x144.png">
+    <script src="http://www.scottishairquality.co.uk/js/libs/media.match.min.js"></script>
+    <script src="http://www.scottishairquality.co.uk/js/libs/enquire.min.js"></script>
+                <!--[if lte IE 9]>
+    <link rel="stylesheet" href="http://www.scottishairquality.co.uk/css/styles-static.min.css">
+    <![endif]-->
+    <!--[if gt IE 9]><!-->
+    <link  rel="stylesheet" href="http://www.scottishairquality.co.uk/css/styles.min.css">
+    <!--<![endif]-->
+    <title>Latest pollution map - Air Quality in Scotland</title>
+            <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-4917050-6']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+       </head>
+<body>
+
+<div class="l-header" role="banner">
+    <a class="logo" href="http://www.scottishairquality.co.uk/">
+        <img id="aqs-logo-white" class="logo-white" src="http://www.scottishairquality.co.uk/images/logo-air-quality-in-scotland-white.png" alt="Air Quality in Scotland">
+        <img id="aqs-logo-coloured" class="logo-coloured" src="http://www.scottishairquality.co.uk/images/logo-air-quality-in-scotland.png" alt="Air Quality in Scotland">
+    </a>
+
+
+    <a href="#nav" id="menu-toggle" class="menu-link menu-link-left menu-link-nav"><span>Menu</span></a>
+    <a href="#" id="search-toggle" class="menu-link  menu-link-right menu-link-search"><span>Search</span></a>
+
+    <div class="search-wrapper" id="search-wrapper">
+        <form action="http://www.scottishairquality.co.uk/search" method="get" class="form form-search">
+            <label for="search" class="vis-hidden">Search</label>
+            <input type="text" id="search" name="search" class="input-text width-200" value="" placeholder="e.g. what is air pollution?">
+            <input type="image" class="input-search-button"  name="search-submit" alt="Search" value="Search" src="http://www.scottishairquality.co.uk/images/btn/search-submit.png" title="Search">
+        </form>
+    </div><!-- search-wrapper  -->
+        <div id="nav" class="l-navigation" role="navigation">
+        <ul>
+            <li class="nav-one"><a href="http://www.scottishairquality.co.uk/index">Home</a></li>
+            <li class="nav-two is-active"><a href="http://www.scottishairquality.co.uk/latest">Latest &amp; Forecasts</a></li>
+            <li class="nav-three"><a href="http://www.scottishairquality.co.uk/air-quality">About air quality</a></li>
+            <li class="nav-four"><a href="http://www.scottishairquality.co.uk/what-can-i-do">What can I do?</a></li>
+            <li class="nav-five"><a href="http://www.scottishairquality.co.uk/data">Data &amp; Maps</a></li>
+            <li class="nav-six"><a href="http://www.scottishairquality.co.uk/laqm">LAQM</a></li>
+            <li class="nav-seven"><a href="http://www.scottishairquality.co.uk/news">News &amp; Reports</a></li>
+            <li class="nav-eight"><a href="http://www.scottishairquality.co.uk/stay-informed">Stay Informed</a></li>
+            <li class="nav-nine"><a href="http://www.scottishairquality.co.uk/know-and-respond">Know &amp; Respond</a></li>
+            <li class="nav-ten"><a href="http://www.scottishairquality.co.uk/education">Education</a></li>
+        </ul>
+    </div><!-- l-navigation -->
+</div><!-- l-header -->
+
+<div class="l-main" role="main" id="main">
+    <div class="l-content">
+                <div class="msg msg-warning no-margin-top"><span class="alt-font-styled">Just to let you know...</span> This website uses cookies to make it simpler. <a href="http://www.scottishairquality.co.uk//cookies">Find out more &raquo;</a></div>
+            <h1>Latest pollution map</h1>
+
+
+
+<div class="map-date-selector-wrapper">
+    <div class="grid">
+        <div class="grid__item two-thirds map-date-selector-wrapper__summary-area">
+            <h2 class="h3" style="color: #FFF;" id="current-date-title">Tuesday 24th May 2016</h2>
+            Highest measured level: <span id="current-date-summary" class="band index2">Low (2)</span>
+        </div><!--
+        --><div class="grid__item one-third map-date-selector-wrapper__date-area">
+            <form method="get" action="index">
+    <div class="map-date-selector-wrapper__date-area__wrapper">
+        <label for="date" class="vis-hidden">Select a date:</label>
+        <a href="index?date=23%2F05%2F2016" id="btn-prev-date" data-date="23/05/2016" title="Change to previous day" class="mds-btn-arrow"><!--
+                        --><img src="http://www.scottishairquality.co.uk/images/btn/arrow-left.png" alt="&lt;"><!--
+                    --></a><!--
+                    --><input type="text" maxlength="10" placeholder="dd/mm/yyyy" value="24/05/2016" id="date" name="date" class="map-date-selector-wrapper__date-area__wrapper__input"><!--
+                    --><a href="#" id="btn-next-date" data-date="" title="Change to next day" class="mds-btn-arrow"><!--
+                        --><img src="http://www.scottishairquality.co.uk/images/btn/arrow-right-disabled.png" alt="&gt;"><!--
+                    --></a>
+    </div>
+        <input type="submit" value="Select Date" class="btn" id="btn-date-submit">
+</form>
+                            <div id="date-errors"></div>
+                    </div>
+    </div><!-- .grid -->
+</div><!-- .map-date-selector-wrapper -->
+
+<div class="map-wrapper">
+
+    <div class="map" id="interactive-map"></div>
+    <noscript><div class="msg msg-info"><p>Unfortunately you'll need to enable Javascript in your browser to view this interactive map.</p>
+            <p>However, you can still check the latest pollution levels across Scotland using the <a href="summary">Monitoring site summary</a> and <a href="local-search">Local search</a> pages.</p>
+        </div>
+    </noscript>
+
+
+    <div class="map-option map-option-zoom">
+        <label for="postcode-zoom-val">Zoom to postcode region</label>
+        <input type="text" value="" placeholder="e.g. AB11" maxlength="4" class="input-text width-70" id="postcode-zoom-val" name="postcode-zoom-val">
+        <a href="#" id="zoom-submit"><img src="../images/btn/zoom-button.png" alt="Zoom"></a>
+        <div id="zoom-error"></div>
+        <div id="geolocation-wrapper" data-title="or detect my location" data-action="map" data-silent="true"></div>
+    </div>
+
+    <div class="map-option-wrapper">
+        <div class="map-option">
+
+            <label for="map-filter-type">Filter by </label>
+
+            <select id="map-filter-type" name="map-filter-type" style="width:auto;">
+                <option value="pollutants">Pollutants</option>
+                <option value="environments">Environment</option>
+            </select>
+
+            <div class="map-option-pollutants" id="filter-pollutants" >
+                                    <input type="checkbox" name="poll_O3" id="poll_O3" data-value="O3" checked="checked">&nbsp;<label for="poll_O3">Ozone</label><br>
+                                    <input type="checkbox" name="poll_CO" id="poll_CO" data-value="CO" checked="checked">&nbsp;<label for="poll_CO">Carbon monoxide</label><br>
+                                    <input type="checkbox" name="poll_SO2" id="poll_SO2" data-value="SO2" checked="checked">&nbsp;<label for="poll_SO2">Sulphur dioxide</label><br>
+                                    <input type="checkbox" name="poll_NO2" id="poll_NO2" data-value="NO2" checked="checked">&nbsp;<label for="poll_NO2">Nitrogen dioxide</label><br>
+                                    <input type="checkbox" name="poll_PM10" id="poll_PM10" data-value="PM10" checked="checked">&nbsp;<label for="poll_PM10">PM<sub>10</sub> particulate matter (Hourly measured)</label><br>
+                                    <input type="checkbox" name="poll_PM25" id="poll_PM25" data-value="PM25" checked="checked">&nbsp;<label for="poll_PM25">PM<sub>2.5</sub> particulate matter (Hourly measured)</label><br>
+                            </div>
+
+            <div class="map-option-env" id="filter-environments">
+                                    <input type="checkbox" name="env_5" id="env_5" checked="checked" data-value="5">&nbsp;<label for="env_5">Roadside</label><br>
+                                    <input type="checkbox" name="env_7" id="env_7" checked="checked" data-value="7">&nbsp;<label for="env_7">Urban background</label><br>
+                                    <input type="checkbox" name="env_1" id="env_1" checked="checked" data-value="1">&nbsp;<label for="env_1">Rural</label><br>
+                                    <input type="checkbox" name="env_9" id="env_9" checked="checked" data-value="9">&nbsp;<label for="env_9">Urban industrial</label><br>
+                                    <input type="checkbox" name="env_3" id="env_3" checked="checked" data-value="3">&nbsp;<label for="env_3">Kerbside</label><br>
+                                    <input type="checkbox" name="env_6" id="env_6" checked="checked" data-value="6">&nbsp;<label for="env_6">Suburban</label><br>
+                                    <input type="checkbox" name="env_8" id="env_8" checked="checked" data-value="8">&nbsp;<label for="env_8">Urban centre</label><br>
+                                    <input type="checkbox" name="env_11" id="env_11" checked="checked" data-value="11">&nbsp;<label for="env_11">Airport</label><br>
+                            </div>
+
+        </div><!-- filter-pollutants -->
+    </div><!-- map option wrapper -->
+</div>
+<div class="index-band-legend">
+    <p>Index (1-10)</p>
+
+    <div class="index-group-wrapper">
+        <p class="index-group">
+            <span class="band index1">1</span>
+            <span class="band index2">2</span>
+            <span class="band index3">3</span>&nbsp;Low
+        </p>
+
+        <p class="index-group">
+            <span class="band index4">4</span>
+            <span class="band index5">5</span>
+            <span class="band index6">6</span>&nbsp;Moderate
+        </p>
+    </div>
+
+    <div class="index-group-wrapper">
+        <p class="index-group">
+            <span class="band index7">7</span>
+            <span class="band index8">8</span>
+            <span class="band index9">9</span>&nbsp;High
+        </p>
+
+        <p class="index-group">
+            <span class="band index10">10</span>&nbsp;Very high
+        </p>
+    </div>
+
+</div><!-- index-band-legend -->
+<div id="site-tabs">
+        <p>The interactive map above can be used to explore different Scottish air quality monitoring sites. Select&nbsp; a monitoring site to see detailed site information and the latest pollution measurements.</p>
+
+
+
+    </div> <!-- #site-tabs -->
+
+
+    </div><!-- l-content -->
+
+        <div class="l-secondary-nav">
+        <ul>
+            <li class="l-secondary-nav-current-section"><a href="http://www.scottishairquality.co.uk/latest/" class="alt-font-styled">Latest &amp; Forecasts</a></li>
+            <li><a href="http://www.scottishairquality.co.uk/latest/summary">Monitoring site summary</a></li><li><a href="http://www.scottishairquality.co.uk/latest/local-search">Local search</a></li><li><a href="http://www.scottishairquality.co.uk/latest/current-levels">Current levels</a></li><li><a href="http://www.scottishairquality.co.uk/latest/current-levels?period=24">24 Hour summary</a></li><li><a href="http://www.scottishairquality.co.uk/latest/pollutant-site-graphs">Pollutant graphs</a></li><li><a href="http://www.scottishairquality.co.uk/latest/forecast">Air Pollution Forecast</a></li><li><a href="http://www.scottishairquality.co.uk/latest/forecast-summary">Forecast 5-day summary</a></li>        </ul>
+
+
+    </div><!-- l-secondary-nav -->
+    
+
+</div>
+
+
+<div class="l-footer" role="contentinfo">
+
+    <div class="grid">
+        <div class="grid__item one-third">
+            <ul>
+                <li class="bold">&copy; 2016 Air Quality in Scotland</li>
+                <li>Website hosted and maintained by <a href="http://ee.ricardo.com">Ricardo Energy &amp; Environment</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/about">About this website</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/cookies">Website cookies &amp; privacy policy</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/members/">Members login</a></li>
+            </ul>
+        </div><!--
+        --><div class="grid__item one-third">
+            <ul>
+                <li class="bold">Discover more...</li>
+                <li><a href="http://www.youtube.com/user/AirQualityScotland"><img src="http://www.scottishairquality.co.uk//images/icons/icon_youtube-large.png" alt="Air Quality in Scotland on YouTube"></a>
+                <a href="http://twitter.com/scotairquality"><img src="http://www.scottishairquality.co.uk/images/icons/icon_twitter-large.png" alt="Follow us on Twitter"></a>
+                <a href="http://www.scottishairquality.co.uk/stay-informed/apps"><img src="http://www.scottishairquality.co.uk/images/icons/icon_app_34x34.jpg" alt="Air Quality in Scotland App"></a>
+                </li>
+            </ul>
+            <p>You can follow us on twitter for all the latest pollution updates from the monitoring network.</p>
+        </div><!--
+        --><div class="grid__item one-third">
+            <ul>
+                <li class="bold">Don't miss...</li>
+                <li>&raquo; <a href="http://children.scottishairquality.co.uk">Air Pollution Detectives</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/stay-informed/apps">Download the Air Quality in Scotland app</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/air-quality">Information about how air quality affects you</a></li>
+                <li>&raquo; <a href="http://www.scottishairquality.co.uk/news/">Latest news from Air Quality in Scotland</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div><!-- l-footer -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="http://www.scottishairquality.co.uk/js/libs/jquery-1.8.3.min.js"><\/script>')</script>
+    <script>var app = {};</script>
+<script src="http://www.scottishairquality.co.uk/js/javascript.js"></script>
+
+    
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="../js/interactive-map.js?105240"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="../js/libs/highcharts-export-csv.js"></script>
+    <script src="../js/libs/bootstrap-datepicker.min.js"></script>
+    <script src="../js/interactive-graph.js?105240"></script>
+    
+
+</body>
+</html>
+
