@@ -1,0 +1,14 @@
+Scrappy: http://doc.scrapy.org/en/latest/intro/tutorial.html#intro-tutorial
+AWS connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
+
+
+ssh -i AWS_keypair.pem ubuntu@ec2-54-93-97-191.eu-central-1.compute.amazonaws.com
+
+
+MongoDB: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+aws_ubuntu .ssh:
+/home/ubuntu/.ssh/id_rsa
+
+Launch spiders: 
+scrapy crawl dmoz
