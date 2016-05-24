@@ -6,6 +6,7 @@ ssh -i AWS_keypair.pem ubuntu@ec2-54-93-97-191.eu-central-1.compute.amazonaws.co
 
 
 MongoDB: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+sudo service mongod start
 
 aws_ubuntu .ssh:
 /home/ubuntu/.ssh/id_rsa
