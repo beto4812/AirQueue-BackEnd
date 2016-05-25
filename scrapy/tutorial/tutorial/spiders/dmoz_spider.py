@@ -27,7 +27,7 @@ class DmozSpider(scrapy.Spider):
 	def parse_station_data(self, response):
 		for sel in response.xpath('//tbody'):
 			reading = SensorReading()
-			print sel
+			#print sel
 			source = "scottishairquality.co.uk" #Static for this spider
 			sourceID = sel.xpath('//div[@class="media margin-bottom"]/p[1]/b').extract()
 			coordinates = sel.xpath('//div[@class="media margin-bottom"]/a/@href').extract()

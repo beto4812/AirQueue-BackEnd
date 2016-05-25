@@ -13,3 +13,19 @@ aws_ubuntu .ssh:
 
 Launch spiders: 
 scrapy crawl dmoz
+
+Mongo:
+https://docs.mongodb.com/manual/reference/mongo-shell/
+
+Mongo-admin:
+gem install genghisapp
+run: genghisapp
+
+----------------------
+sudo dpkg --purge --force-depends libsqlite3-0
+sudo apt-get install libsqlite3-0
+sudo apt-get install -f
+sudo apt-get install libsqlite3-dev
+
+Ruby:
+http://stackoverflow.com/questions/20300791/install-ruby-on-rails-using-rvm-on-ubuntu-12-04
