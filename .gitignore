@@ -4,4 +4,6 @@ credentials.csv
 *.swo
 *.swp
 *~
+.idea/*
+.idea
 

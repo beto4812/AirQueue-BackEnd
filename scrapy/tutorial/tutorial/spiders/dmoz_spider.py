@@ -3,47 +3,76 @@ import urlparse
 
 from tutorial.items import SensorReading
 
+
 class DmozSpider(scrapy.Spider):
-	name = "dmoz"
-	allowed_domains = ["scottishairquality.co.uk"]
-	start_urls = ["http://www.scottishairquality.co.uk/latest/summary"]
+    name = "dmoz"
+    allowed_domains = ["scottishairquality.co.uk"]
+    start_urls = ["http://www.scottishairquality.co.uk/latest/summary"]
 
-	def parse(self, response):
-		for sel in response.xpath('//tr/td[1]/a'):
-			#item = DmozItem()
-			name = sel.xpath('text()').extract()
-			link = sel.xpath('@href').extract()
+    def parse(self, response):
+        for sel in response.xpath('//tr/td[1]/a'):
+            # item = DmozItem()
+            name = sel.xpath('text()').extract()
+            link = sel.xpath('@href').extract()
 
-			concat = "http://www.scottishairquality.co.uk/latest/" + link[0]
-				
-			print  name[0], link[0]
-			print concat
-			#item['link'] = link
-			#item['name'] = name
-			#yield item
-			yield scrapy.Request(concat, callback=self.parse_station_data)
+            concat = "http://www.scottishairquality.co.uk/latest/" + link[0]
+
+            # print  name[0], link[0]
+            print "-VISITING: " + concat
+            # item['link'] = link
+            # item['name'] = name
+            # yield item
+            yield scrapy.Request(concat, callback=self.parse_station_data)
+
+    def process_row(self, row, reading):
+        pollutant = row.xpath('td[1]').extract()
 
 
-	def parse_station_data(self, response):
-		for sel in response.xpath('//tbody'):
-			reading = SensorReading()
-			#print sel
-			source = "scottishairquality.co.uk" #Static for this spider
-			sourceID = sel.xpath('//div[@class="media margin-bottom"]/p[1]/b').extract()
-			coordinates = sel.xpath('//div[@class="media margin-bottom"]/a/@href').extract()
-			lastUpdated = sel.xpath('//div[@class="media margin-bottom"]/p[3]').extract()
-			pm10 = sel.xpath('tr[1]/td[3]/text()').extract()
-			no2 = sel.xpath('tr[2]/td[3]/text()').extract()
-			no = sel.xpath('tr[3]/td[3]/text()').extract()
-			nox = sel.xpath('tr[4]/td[3]/text()').extract()
-			
-			reading['source'] = source
-			reading['sourceID'] = sourceID
-			reading['pm10'] = pm10
-			reading['no2'] = no2
-			reading['no'] = no
-			reading['nox'] = nox
-			reading['coordinates'] = coordinates
-			reading['lastUpdated'] = lastUpdated
-		
-			yield reading	
+
+        key = {
+            '<td>PM<sub>10</sub> particulate matter (Hourly measured)</td>': 'pm_10',
+            '<td>Nitric oxide (NO)</td>': 'no',
+            '<td>Nitrogen oxides as nitrogen dioxide (NOXasNO<sub>2</sub>)</td>': 'no_x',
+            '<td>Nitrogen dioxide (NO<sub>2</sub>)</td>': 'no_2',
+            '<td>PM1 particulate matter (Hourly measured)</td>': 'pm_1',
+            '<td>PM<sub>2.5</sub> particulate matter (Hourly measured)</td>': 'pm_2p5',
+            '<td>Volatile PM<sub>2.5</sub> (Hourly measured)</td>': 'v_pm_2p5',
+            '<td>Non-volatile PM<sub>2.5</sub> (Hourly measured)</td>': 'nv_pm_2p5',
+            '<td>Volatile PM<sub>10</sub> (Hourly measured)</td>': 'v_pm_10',
+            '<td>Sulphur dioxide (SO<sub>2</sub>)</td>': 'so_2',
+            '<td>Carbon monoxide</td>': 'co'
+        }.get(pollutant[0])
+
+        if(key): reading[key] = row.xpath('td[3]/text()').extract()
+
+
+
+    def parse_station_data(self, response):
+        for sel in response.xpath('//tbody'):
+            # reading = SensorReading()
+            print "-SEL "
+            print sel
+
+            reading = SensorReading()
+
+            reading['source'] = "scottishairquality.co.uk"  # Static for this spider
+            reading['sourceID'] = sel.xpath('//div[@class="media margin-bottom"]/p[1]/b').extract()
+            reading['coordinates'] = sel.xpath('//div[@class="media margin-bottom"]/a/@href').extract()
+            reading['lastUpdated'] = sel.xpath('//div[@class="media margin-bottom"]/p[3]').extract()
+
+            rows = sel.xpath('tr')
+            for row in rows:
+                print row
+                self.process_row(row, reading)
+
+            yield reading
+            #if(no and no[0] != 'No data '): reading['no'] = no
+            #if(source and source[0] != 'No data '): reading['source'] = source
+            #if(sourceID and sourceID[0] != 'No data '): reading['sourceID'] = sourceID[0].split(':')[1][1:-4]
+            #if(pm10 and pm10[0] != 'No data ' and pm10[1]): reading['pm10'] = pm10
+            #if(no2 and no2[0] != 'No data '): reading['no2'] = no2
+            #if(nox and nox[0] != 'No data '): reading['nox'] = nox
+            #if(coordinates and coordinates[0] != 'No data '): reading['coordinates'] = coordinates
+            #if(lastUpdated and lastUpdated[0] != 'No data '): reading['lastUpdated'] = [lastUpdated[0].split(': ')[0], lastUpdated[0].split(': ')[1].split(' ')[1][:-4]]
+
+            # yield reading

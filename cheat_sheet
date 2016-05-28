@@ -13,9 +13,11 @@ aws_ubuntu .ssh:
 
 Launch spiders: 
 scrapy crawl dmoz
+scrapy crawl dmoz -o readings.json
 
 Mongo:
 https://docs.mongodb.com/manual/reference/mongo-shell/
+CRUD: https://docs.mongodb.com/manual/crud/
 
 Mongo-admin:
 gem install genghisapp
@@ -29,3 +31,9 @@ sudo apt-get install libsqlite3-dev
 
 Ruby:
 http://stackoverflow.com/questions/20300791/install-ruby-on-rails-using-rvm-on-ubuntu-12-04
+
+Git keys:
+
+https://help.github.com/articles/generating-an-ssh-key/
+
+git remote set-url origin git@github.com:username/repo.git
