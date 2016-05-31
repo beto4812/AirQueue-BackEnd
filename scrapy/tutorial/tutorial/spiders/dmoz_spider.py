@@ -43,9 +43,10 @@ class DmozSpider(scrapy.Spider):
             '<td>Carbon monoxide</td>': 'co'
         }.get(pollutant[0])
 
-        if(key): reading[key] = row.xpath('td[3]/text()').extract()
-
-
+        val = row.xpath('td[3]/text()').extract()
+        if key:
+            if val[0] != "No data ":
+                reading[key] = val
 
     def parse_station_data(self, response):
         for sel in response.xpath('//tbody'):

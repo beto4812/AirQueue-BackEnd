@@ -1,0 +1,21 @@
+0.0.0.0:27017
+
+Mongo-REST:
+  https://softinstigate.atlassian.net/wiki/display/RH/Installation+and+Setup
+
+Query sensor_readings
+  db.sensor_readings.find()
+  db.sensor_readings.find({source: "scottishairquality.co.uk"} )
+
+
+Start RESTHEART server
+  java -server -jar restheart.jar
+  Daemon: java -server -jar restheart.jar --fork
+
+  http://127.0.0.1:8080/browser
+
+RESTHEART requests
+  http GET 127.0.0.1:8080/aq
+  http GET 127.0.0.1:8080/aq/sensor_readings
+
+

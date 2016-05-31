@@ -19,10 +19,6 @@ Mongo:
 https://docs.mongodb.com/manual/reference/mongo-shell/
 CRUD: https://docs.mongodb.com/manual/crud/
 
-Mongo-admin:
-gem install genghisapp
-run: genghisapp
-
 ----------------------
 sudo dpkg --purge --force-depends libsqlite3-0
 sudo apt-get install libsqlite3-0

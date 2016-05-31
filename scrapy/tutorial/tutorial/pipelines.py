@@ -13,8 +13,38 @@ class SensorReadingPipeline(object):
 
     def process_item(self, item, spider):
         print "SensorReadingPipeline"
-        # print item['sourceID']
-        self.db[self.collection_name].insert(dict(item))
+        if 'sourceID' in item:
+            item['sourceID'] = item['sourceID'][0].split(':')[1][1:-4]
+        if 'lastUpdated' in item:
+            updated = item['lastUpdated'][0].split()
+            item['lastUpdated'] = [updated[3], updated[4][:-4]]
+        if 'no_2' in item:
+            item['no_2'] = [item['no_2'][0].split(' ')[0], item['no_2'][0].split(' ')[1]]
+        if 'no' in item:
+            item['no'] = [item['no'][0].split(' ')[0], item['no'][0].split(' ')[1]]
+        if 'no_x' in item:
+            item['no_x'] = [item['no_x'][0].split(' ')[0], item['no_x'][0].split(' ')[1]]
+        if 'pm_10' in item:
+            item['pm_10'] = [item['pm_10'][0].split(' ')[0], item['pm_10'][0].split(' ')[1],
+                             item['pm_10'][1].strip().replace('(', '').replace(')', '')]
+        if 'v_pm_10' in item:
+            item['v_pm_10'] = [item['v_pm_10'][0].split(' ')[0], item['v_pm_10'][0].split(' ')[1],
+                               item['v_pm_10'][1].strip().replace('(', '').replace(')', '')]
+        if 'pm_2p5' in item:
+            item['pm_2p5'] = [item['pm_2p5'][0].split(' ')[0], item['pm_2p5'][0].split(' ')[1],
+                              item['pm_2p5'][1].strip().replace('(', '').replace(')', '')]
+        if 'nv_pm_2p5' in item:
+            item['nv_pm_2p5'] = [item['nv_pm_2p5'][0].split(' ')[0], item['nv_pm_2p5'][0].split(' ')[1],
+                                  item['nv_pm_2p5'][1].strip().replace('(', '').replace(')', '')]
+        if 'v_pm_2p5' in item:
+            item['v_pm_2p5'] = [item['v_pm_2p5'][0].split(' ')[0], item['v_pm_2p5'][0].split(' ')[1],
+                                  item['v_pm_2p5'][1].strip().replace('(', '').replace(')', '')]
+
+        if item['coordinates']:
+            coord = item['coordinates'][0].replace(',', ' ').replace('=', ' ').split()
+            item['coordinates'] = [coord[1], coord[2]]
+
+        self.db[self.collection_name].insert    (dict(item))
         return item
 
     def __init__(self, mongo_uri, mongo_db):
