@@ -27,6 +27,8 @@ class SensorReading(scrapy.Item):
 	so_2 = scrapy.Field()  # Volatile Particulate Matter (10 micrometer)
 	co = scrapy.Field()  # Carbon monoxide
 
+	date_inserted = scrapy.Field()  # Carbon monoxide
+
 
 	coordinates = scrapy.Field() #Lat, Long
 	lastUpdated = scrapy.Field()

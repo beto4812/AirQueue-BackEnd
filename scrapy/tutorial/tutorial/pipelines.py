@@ -6,7 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 from scrapy.exceptions import DropItem
 import pymongo
-
+import datetime
 
 class SensorReadingPipeline(object):
     collection_name = 'sensor_readings'
@@ -17,7 +17,7 @@ class SensorReadingPipeline(object):
             item['sourceID'] = item['sourceID'][0].split(':')[1][1:-4]
         if 'lastUpdated' in item:
             updated = item['lastUpdated'][0].split()
-            item['lastUpdated'] = [updated[3], updated[4][:-4]]
+            item['lastUpdated'] = datetime.datetime.strptime(updated[3]+" "+updated[4][:-4], "%d/%m/%Y %H:%M")
         if 'no_2' in item:
             item['no_2'] = [item['no_2'][0].split(' ')[0], item['no_2'][0].split(' ')[1]]
         if 'no' in item:
@@ -43,6 +43,8 @@ class SensorReadingPipeline(object):
         if item['coordinates']:
             coord = item['coordinates'][0].replace(',', ' ').replace('=', ' ').split()
             item['coordinates'] = [coord[1], coord[2]]
+
+        item['date_inserted'] = datetime.datetime.utcnow()
 
         self.db[self.collection_name].insert    (dict(item))
         return item

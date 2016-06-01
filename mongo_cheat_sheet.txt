@@ -4,9 +4,16 @@ Mongo-REST:
   https://softinstigate.atlassian.net/wiki/display/RH/Installation+and+Setup
 
 Query sensor_readings
+
+  mongo
+
+  show dbs
+
+  use aq
+
   db.sensor_readings.find()
   db.sensor_readings.find({source: "scottishairquality.co.uk"} )
-
+  db.sensor_readings.find({"date_inserted" : { $gte : new ISODate("2016-06-01T00:00:00Z") }});
 
 Start RESTHEART server
   java -server -jar restheart.jar
@@ -17,5 +24,3 @@ Start RESTHEART server
 RESTHEART requests
   http GET 127.0.0.1:8080/aq
   http GET 127.0.0.1:8080/aq/sensor_readings
-
-
