@@ -7,6 +7,7 @@
 from scrapy.exceptions import DropItem
 import pymongo
 import datetime
+import boto3
 
 class SensorReadingPipeline(object):
     collection_name = 'sensor_readings'
@@ -17,7 +18,7 @@ class SensorReadingPipeline(object):
             item['sourceID'] = item['sourceID'][0].split(':')[1][1:-4]
         if 'lastUpdated' in item:
             updated = item['lastUpdated'][0].split()
-            item['lastUpdated'] = datetime.datetime.strptime(updated[3]+" "+updated[4][:-4], "%d/%m/%Y %H:%M")
+            item['lastUpdated'] = str(datetime.datetime.strptime(updated[3]+" "+updated[4][:-4], "%d/%m/%Y %H:%M"))
         if 'no_2' in item:
             item['no_2'] = [item['no_2'][0].split(' ')[0], item['no_2'][0].split(' ')[1]]
         if 'no' in item:
@@ -39,14 +40,25 @@ class SensorReadingPipeline(object):
         if 'v_pm_2p5' in item:
             item['v_pm_2p5'] = [item['v_pm_2p5'][0].split(' ')[0], item['v_pm_2p5'][0].split(' ')[1],
                                   item['v_pm_2p5'][1].strip().replace('(', '').replace(')', '')]
+        if 'so_2' in item:
+            item['so_2'] =  [item['so_2'][0].split(' ')[0], item['so_2'][0].split(' ')[1]]
+
 
         if item['coordinates']:
             coord = item['coordinates'][0].replace(',', ' ').replace('=', ' ').split()
-            item['coordinates'] = [coord[1], coord[2]]
+            item['coordinates'] = [coord[1],coord[2]]
+        item['date_inserted'] = str(datetime.datetime.utcnow())
+        item['sourceID_lastUpdated'] = item['sourceID'] + str(item['lastUpdated'])
 
-        item['date_inserted'] = datetime.datetime.utcnow()
+        self.db[self.collection_name].insert(dict(item))
+        dynamodb = boto3.resource('dynamodb')
 
-        self.db[self.collection_name].insert    (dict(item))
+        table = dynamodb.Table('airquality')
+
+        table.put_item(
+                Item = dict(item)
+        )
+
         return item
 
     def __init__(self, mongo_uri, mongo_db):
