@@ -43,6 +43,9 @@ class SensorReadingPipeline(object):
         if 'so_2' in item:
             item['so_2'] =  [item['so_2'][0].split(' ')[0], item['so_2'][0].split(' ')[1]]
 
+        if 'co' in item:
+            item['co'] =  [item['co'][0].split(' ')[0], item['co'][0].split(' ')[1]]
+
 
         if item['coordinates']:
             coord = item['coordinates'][0].replace(',', ' ').replace('=', ' ').split()
