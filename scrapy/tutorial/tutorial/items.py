@@ -14,7 +14,7 @@ class DmozItem(scrapy.Item):
 class SensorReading(scrapy.Item):
 	source = scrapy.Field() #Source of reading (e.g scottishairquality.co.uk)
 	sourceID = scrapy.Field() #Id assigned as in source
-	sourceID_lastUpdated = scrapy.Field()
+	#sourceID_lastUpdated = scrapy.Field()
 
 	pm_10 = scrapy.Field() #Particulate Matter (10 micrometer)
 	no = scrapy.Field() #Nitric oxide

@@ -51,15 +51,20 @@ class SensorReadingPipeline(object):
             coord = item['coordinates'][0].replace(',', ' ').replace('=', ' ').split()
             item['coordinates'] = [coord[1],coord[2]]
         item['date_inserted'] = str(datetime.datetime.utcnow())
-        item['sourceID_lastUpdated'] = item['sourceID'] + str(item['lastUpdated'])
 
-        self.db[self.collection_name].insert(dict(item))
+        #self.db[self.collection_name].insert(dict(item))
         dynamodb = boto3.resource('dynamodb')
 
         table = dynamodb.Table('airquality')
 
         table.put_item(
                 Item = dict(item)
+        )
+
+        table = dynamodb.Table('airquality_sourceID_coordinates')
+
+        table.put_item(
+                Item = dict({'sourceID': item['sourceID'], 'coordinates': item['coordinates']})
         )
 
         return item
@@ -76,9 +81,9 @@ class SensorReadingPipeline(object):
             mongo_db=crawler.settings.get('MONGO_DATABASE')
         )
 
-    def open_spider(self, spider):
-        self.client = pymongo.MongoClient(self.mongo_uri)
-        self.db = self.client[self.mongo_db]
+    #def open_spider(self, spider):
+    #    self.client = pymongo.MongoClient(self.mongo_uri)
+    #    self.db = self.client[self.mongo_db]
 
     def close_spider(self, spider):
         self.client.close()
