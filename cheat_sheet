@@ -14,6 +14,8 @@ aws_ubuntu .ssh:
 Launch spiders: 
 scrapy crawl dmoz
 scrapy crawl dmoz -o readings.json
+scrapy crawl dmoz -o readings.json
+python diss_back/scrapy/tutorial/tutorial/spiders/dmoz_spider.py
 
 Mongo:
 https://docs.mongodb.com/manual/reference/mongo-shell/

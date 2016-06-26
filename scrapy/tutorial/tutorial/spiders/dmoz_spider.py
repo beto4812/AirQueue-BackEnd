@@ -1,7 +1,8 @@
 import scrapy
 import urlparse
 
-from tutorial.items import SensorReading
+from scrapy.crawler import CrawlerProcess
+from items import SensorReading
 
 
 class DmozSpider(scrapy.Spider):
@@ -77,3 +78,11 @@ class DmozSpider(scrapy.Spider):
             #if(lastUpdated and lastUpdated[0] != 'No data '): reading['lastUpdated'] = [lastUpdated[0].split(': ')[0], lastUpdated[0].split(': ')[1].split(' ')[1][:-4]]
 
             # yield reading
+
+process = CrawlerProcess({
+    'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
+    'ITEM_PIPELINES': {'pipelines.SensorReadingPipeline': 100}
+})
+
+process.crawl(DmozSpider)
+process.start() # the script will block here until the crawling is finished

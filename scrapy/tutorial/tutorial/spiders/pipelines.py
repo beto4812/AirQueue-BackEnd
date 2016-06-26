@@ -85,5 +85,5 @@ class SensorReadingPipeline(object):
     #    self.client = pymongo.MongoClient(self.mongo_uri)
     #    self.db = self.client[self.mongo_db]
 
-    def close_spider(self, spider):
-        self.client.close()
+    #def close_spider(self, spider):
+    #    self.client.close()
