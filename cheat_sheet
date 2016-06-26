@@ -15,7 +15,7 @@ Launch spiders:
 scrapy crawl dmoz
 scrapy crawl dmoz -o readings.json
 scrapy crawl dmoz -o readings.json
-python diss_back/scrapy/tutorial/tutorial/spiders/dmoz_spider.py
+python diss_back/scrapy/tutorial/tutorial/spiders/dmoz_spider.py > ~/outputDaemon.txt
 
 Mongo:
 https://docs.mongodb.com/manual/reference/mongo-shell/
@@ -44,3 +44,9 @@ Android:
 http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/
 http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/setup.html
 http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/getting-started-store-query-app-data.html
+
+Schedule script:
+crontab -e
+crontab -l
+
+*/10 * * * * python diss_back/scrapy/tutorial/tutorial/spiders/dmoz_spider.py > ~/outputDaemon.txt
