@@ -41,7 +41,8 @@ class DmozSpider(scrapy.Spider):
             '<td>Non-volatile PM<sub>2.5</sub> (Hourly measured)</td>': 'nv_pm_2p5',
             '<td>Volatile PM<sub>10</sub> (Hourly measured)</td>': 'v_pm_10',
             '<td>Sulphur dioxide (SO<sub>2</sub>)</td>': 'so_2',
-            '<td>Carbon monoxide</td>': 'co'
+            '<td>Carbon monoxide</td>': 'co',
+            '<td>Ozone (O<sub>3</sub>)</td>': 'o3'
         }.get(pollutant[0])
 
         val = row.xpath('td[3]/text()').extract()
