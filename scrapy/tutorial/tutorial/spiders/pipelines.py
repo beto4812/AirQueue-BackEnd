@@ -19,6 +19,8 @@ class SensorReadingPipeline(object):
         if 'lastUpdated' in item:
             updated = item['lastUpdated'][0].split()
             item['lastUpdated'] = str(datetime.datetime.strptime(updated[3]+" "+updated[4][:-4], "%d/%m/%Y %H:%M"))
+        if 'site_map' in item:
+            item['site_map'] = item['site_map'][0]
         if 'no_2' in item:
             item['no_2'] = [item['no_2'][0].split(' ')[0], item['no_2'][0].split(' ')[1]]
         if 'no' in item:

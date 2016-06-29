@@ -34,5 +34,6 @@ class SensorReading(scrapy.Item):
 
 	coordinates = scrapy.Field() #Lat, Long
 	lastUpdated = scrapy.Field()
+	site_map = scrapy.Field()
 	_id = scrapy.Field()
 

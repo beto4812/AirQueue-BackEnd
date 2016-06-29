@@ -62,6 +62,7 @@ class DmozSpider(scrapy.Spider):
             reading['sourceID'] = sel.xpath('//div[@class="media margin-bottom"]/p[1]/b').extract()
             reading['coordinates'] = sel.xpath('//div[@class="media margin-bottom"]/a/@href').extract()
             reading['lastUpdated'] = sel.xpath('//div[@class="media margin-bottom"]/p[3]').extract()
+            reading['site_map'] = sel.xpath('//div[@class="media margin-bottom"]/a/img/ @src').extract()
 
             rows = sel.xpath('tr')
             for row in rows:
