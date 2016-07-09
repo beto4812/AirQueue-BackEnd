@@ -7,3 +7,4 @@ credentials.csv
 .idea/*
 .idea
 *.iml
+/nbproject/private/

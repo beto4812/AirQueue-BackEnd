@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <context-param>
+        <param-name>rulesfile</param-name>
+        <param-value>facts.clp</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>factsfile</param-name>
+        <param-value>/home/data</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>Advice</servlet-name>
+        <servlet-class>Advice</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>
+            Advice
+        </servlet-name>
+        <url-pattern>
+            /advice
+        </url-pattern>
+    </servlet-mapping>
+</web-app>
