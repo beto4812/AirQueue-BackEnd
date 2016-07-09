@@ -16,6 +16,8 @@ class SensorReadingPipeline(object):
         print "SensorReadingPipeline"
         if 'sourceID' in item:
             item['sourceID'] = item['sourceID'][0].split(':')[1][1:-4]
+        if 'air_quality_index' in item:
+            item['air_quality_index'] = item['air_quality_index'][0].split(' ')[2][5:-5]
         if 'lastUpdated' in item:
             updated = item['lastUpdated'][0].split()
             item['lastUpdated'] = str(datetime.datetime.strptime(updated[3]+" "+updated[4][:-4], "%d/%m/%Y %H:%M"))

@@ -50,3 +50,14 @@ crontab -e
 crontab -l
 
 */10 * * * * python diss_back/scrapy/tutorial/tutorial/spiders/dmoz_spider.py > ~/outputDaemon.txt
+
+____________________________
+
+JESS:
+
+java -cp $JESS/jess.jar jess.Main src/facts.clp
+java -cp jess.jar jess.Main
+
+(batch facts.clp)
+
+(facts)

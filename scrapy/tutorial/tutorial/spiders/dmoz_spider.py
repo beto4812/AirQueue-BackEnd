@@ -60,6 +60,8 @@ class DmozSpider(scrapy.Spider):
 
             reading['source'] = "scottishairquality.co.uk"  # Static for this spider
             reading['sourceID'] = sel.xpath('//div[@class="media margin-bottom"]/p[1]/b').extract()
+            if sel.xpath('//div[@class="media margin-bottom"]/p[2]/span').extract() != "":
+                reading['air_quality_index'] = sel.xpath('//div[@class="media margin-bottom"]/p[2]/span').extract()
             reading['coordinates'] = sel.xpath('//div[@class="media margin-bottom"]/a/@href').extract()
             reading['lastUpdated'] = sel.xpath('//div[@class="media margin-bottom"]/p[3]').extract()
             reading['site_map'] = sel.xpath('//div[@class="media margin-bottom"]/a/img/ @src').extract()
