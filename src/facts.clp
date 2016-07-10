@@ -22,13 +22,13 @@
 ;If asthma, trigger high sensitivity by default.
 
 (defrule enjoy_usual_activities_3
-    (person $?)
-    (pollutionLevel {value <=3})
+    (pollutionLevel {value <= 3})
     =>
     (assert
         (advice (text "Enjoy your usual outdoor activities")
         (level 10)))
 )
+
 
 (defrule consider_reducing_strenuous_activity_4_6
     (person {sensitivity >= 3})
@@ -45,7 +45,7 @@
     =>
     (assert
         (advice (text "If you are experiencing discomfort such as sore eyes, cough or sore throat you should consider reducing activity, particularly outdoors")
-        (level 20))
+        (level 20)))
 )
 
 (defrule reduce_strenuous_activity_sensitivity_sensitive_7_9
@@ -66,8 +66,8 @@
         (level 30)))
 )
 
+
 (defrule reduce_strenuous_general_10
-    (person ?$)
     (pollutionLevel {value >= 10} )
     =>
     (assert
@@ -83,3 +83,6 @@
         (advice (text "Avoid strenuous physical activity.")
         (level 20)))
 )
+
+(defquery all-advices
+  (advice))
