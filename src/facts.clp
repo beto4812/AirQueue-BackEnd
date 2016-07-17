@@ -19,70 +19,108 @@
     (slot level); 1; 2; 3 ;keep top level advice
 )
 
-;If asthma, trigger high sensitivity by default.
-
-(defrule enjoy_usual_activities_3
-    (pollutionLevel {value <= 3})
+(defrule enjoy_usual_activities_everyone_1_3
+    ?pol <- (pollutionLevel {value <= 3})
+    ?per <- (person)
     =>
+    (retract ?per ?pol)
     (assert
         (advice (text "Enjoy your usual outdoor activities")
         (level 10)))
 )
 
-
-(defrule consider_reducing_strenuous_activity_4_6
-    (person {sensitivity >= 3})
-    (pollutionLevel {value >= 4 && value <= 6})
+(defrule enjoy_usual_activities_general_4_6
+    ?pol <- (pollutionLevel {value >= 4 && value <= 6})
+    ?per <- (person {sensitivity == 1})
     =>
+    (retract ?per ?pol)
+    (assert
+        (advice (text "Enjoy your usual outdoor activities")
+        (level 11)))
+)
+
+(defrule consider_reducing_strenuous_activity_sensitive_4_6
+    ?per <- (person {sensitivity >= 2})
+    ?pol <- (pollutionLevel {value >= 4 && value <= 6})
+    =>
+    (retract ?per ?pol)
     (assert
         (advice (text "Consider reducing strenuous physical activity, particularly outdoors")
-        (level 20)))
+        (level 25)))
 )
 
 (defrule consider_reducing_strenuous_activity_general_7_9
-    (person {sensitivity >= 2})
-    (pollutionLevel {value >= 7 && value <= 9} )
+    ?per <- (person {sensitivity <= 2})
+    ?pol <- (pollutionLevel {value >= 7 && value <= 9} )
     =>
+    (retract ?per ?pol)
     (assert
         (advice (text "If you are experiencing discomfort such as sore eyes, cough or sore throat you should consider reducing activity, particularly outdoors")
         (level 20)))
 )
 
 (defrule reduce_strenuous_activity_sensitivity_sensitive_7_9
-    (person {sensitivity >= 3})
-    (pollutionLevel {value >= 7 && value <= 9} )
+    ?per <- (person {sensitivity == 3})
+    ?pol <- (pollutionLevel {value >= 7 && value <= 9} )
     =>
+    (retract ?per ?pol)
     (assert
         (advice (text "Reduce strenuous physical exertion, particularly outdoors, and particularly if you experience symptoms")
-        (level 20)))
+        (level 30)))
 )
 
 (defrule reduce_strenuous_activity_elder_7_9
-    (person {age >= 65})
-    (pollutionLevel {value >= 7 && value <= 9} )
+    ?per <- (person {age >= 65})
+    ?pol <- (pollutionLevel {value >= 7 && value <= 9} )
     =>
+    (retract ?per ?pol)
     (assert
         (advice (text "Reduce physical exertion, particularly outdoors.")
-        (level 30)))
+        (level 35)))
 )
 
 
 (defrule reduce_strenuous_general_10
-    (pollutionLevel {value >= 10} )
+    ?per <- (person {sensitivity == 1})
+    ?pol <- (pollutionLevel {value >= 10} )
     =>
+    (retract ?per ?pol)
     (assert
-        (advice (text "Reduce strenuous physical exertion, particularly outdoors, and particularly if they experience symptoms")
-        (level 20)))
+        (advice (text "Reduce strenuous physical exertion, particularly outdoors, and particularly if you experience symptoms")
+        (level 34)))
 )
 
 (defrule avoid_strenuous_sensitive_10
-    (person {sensitivity >= 2})
-    (pollutionLevel {value >= 10} )
+    ?per <- (person {sensitivity >= 2})
+    ?pol <- (pollutionLevel {value >= 10} )
     =>
+    (retract ?per ?pol)
     (assert
         (advice (text "Avoid strenuous physical activity.")
-        (level 20)))
+        (level 36)))
+)
+
+(defrule multiple_advices_1
+    ?adv1 <- (advice (level ?lvl1))
+    ?adv2 <- (advice (level ?lvl2))
+    (test (< ?lvl1 ?lvl2))
+    =>
+    (retract ?lvl1)
+)
+
+(defrule multiple_advices_1
+    ?adv1 <- (advice (level ?lvl1))
+    ?adv2 <- (advice (level ?lvl2))
+    (test (> ?lvl1 ?lvl2))
+    =>
+    (retract ?lvl2)
 )
 
 (defquery all-advices
   (advice))
+
+(defquery all-person
+    (person))
+
+(defquery all-pollutionLevel
+        (pollutionLevel))

@@ -55,9 +55,13 @@ ____________________________
 
 JESS:
 
+http://herzberg.ca.sandia.gov/docs/71/api.html
+
 java -cp $JESS/jess.jar jess.Main src/facts.clp
 java -cp jess.jar jess.Main
 
 (batch facts.clp)
 
 (facts)
+
+http://localhost:8080/Advice/advice
