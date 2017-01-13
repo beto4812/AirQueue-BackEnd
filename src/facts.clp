@@ -1,6 +1,6 @@
 (deftemplate person
     (slot age)
-    (slot sensitivity) ;low(1) ;medium(2); high (3)
+    (slot sensitivity) ;low(1) high (2)
     (slot asthma) ;true; false
     (slot sex)
 )
@@ -41,6 +41,7 @@
 
 (defrule consider_reducing_strenuous_activity_sensitive_4_6
     ?per <- (person {sensitivity >= 2})
+    ?per <- (person {age >= 65})
     ?pol <- (pollutionLevel {value >= 4 && value <= 6})
     =>
     (retract ?per ?pol)

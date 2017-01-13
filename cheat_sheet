@@ -60,8 +60,10 @@ http://herzberg.ca.sandia.gov/docs/71/api.html
 java -cp $JESS/jess.jar jess.Main src/facts.clp
 java -cp jess.jar jess.Main
 
-(batch facts.clp)
+(batch facts.clp) //This one
 
 (facts)
+(rules)
 
 http://localhost:8080/Advice/advice
+http://ec2-54-93-97-191.eu-central-1.compute.amazonaws.com:8080/Advice/advice?age=80&sensitivity=3&airQualityIndex=8
